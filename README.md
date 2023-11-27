@@ -20,9 +20,10 @@ The following projects files are responsible for:
 5. **exceptions** - Project used custom exceptions
 6. **resources** - Application resources (e.g. configurations, etc.)
 
-An application screenshot is following
+An application help screenshot is below:
+[](./resources/eachecker-screenshot.png)
 
-![](TODO:URL)
+An application log snapshot is here: [ea-check.log](./ea-check.log) 
 
 # Build instructions
 
