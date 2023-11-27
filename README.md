@@ -27,6 +27,17 @@ The following projects files are responsible for:
 An application help screenshot is below:
 ![](./resources/eachecker-screenshot.png)
 
+## Application argumants usage an example
+```
+EAChecker.exe -c -p -s {B9521B93-C6FB-41ea-AEE8-577F2DAB92D4}
+```
+The command above will start EEChecker from {B9521B93-C6FB-41ea-AEE8-577F2DAB92D4} GUID package with enabled checkers (-c option) and performance (-p option) plugins
+
+> [!NOTE]
+> GUID is an unique identifier in Sparx Architect for tree item (package/diagram/etc.). The following picture shows how it can be get from EA for particular package
+
+![](./resources/eachecker-GUID.png)
+
 An application log snapshot is here: [ea-check.log](./ea-check.log) 
 
 # Build instructions
