@@ -128,8 +128,11 @@ class EACheckerEngine( EACheckerEngineInterface ):
 
          startGUID: str = self.__config.getStartGUID()
          if startGUID is not None:
-            LOGGER.info( f"Checker entry point is {startGUID}." )
             self.__rootNode = self.__repo.GetPackageByGuid( startGUID )
+            if self.__rootNode is not None:
+               LOGGER.info( f"Checker entry point is {startGUID}." )
+            else:
+               LOGGER.fatal( f"{startGUID} is not found in EA repo." )            	
          else:
             self.__rootNode = self.__repo.Models[ 0 ]
 
