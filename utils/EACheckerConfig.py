@@ -84,3 +84,6 @@ class EACheckerConfig( EACheckerConfigPluginInterface, EACheckerConfigEngineInte
 
    def isPluginEnabled( self ) -> bool:
       return str2bool( self.__rootNode.attrib[ "enabled" ] )
+
+   def getStartGUID( self ) -> str:
+      return self.__argSettings.getStartGUID()

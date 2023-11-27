@@ -1,5 +1,5 @@
 class EACheckerConfigBaseInterface:
-   APP_VER: float = 0.2
+   APP_VER: float = 0.3
    APP_TITLE: str = "Enterprise Architect Checker"
    APP_ABOUT_INFO: str = "This application provides a set of EA checkers/performance plug-ins."
    APP_AUTHOR: str = "(c) Alexander.Golyshkin 2023"

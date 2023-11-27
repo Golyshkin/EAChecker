@@ -126,8 +126,14 @@ class EACheckerEngine( EACheckerEngineInterface ):
       if self.__repo.OpenFile2( EACheckerConfigPluginInterface.CONF_FILE_PATH, EACheckerConfigPluginInterface.CONF_USER_NAME, EACheckerConfigPluginInterface.CONF_USER_PSWD ):
          LOGGER.info( f"EA Connection success for {EACheckerConfigPluginInterface.CONF_USER_NAME}." )
 
-         self.__rootNode = self.__repo.Models[ 0 ]
-         connectionStatus = True
+         startGUID: str = self.__config.getStartGUID()
+         if startGUID is not None:
+            LOGGER.info( f"Checker entry point is {startGUID}." )
+            self.__rootNode = self.__repo.GetPackageByGuid( startGUID )
+         else:
+            self.__rootNode = self.__repo.Models[ 0 ]
+
+         connectionStatus = True if self.__rootNode is not None else False
       else:
          LOGGER.critical( f"EA Connection fail for {EACheckerConfigPluginInterface.CONF_USER_NAME}." )
          # return False

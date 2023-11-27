@@ -1,5 +1,18 @@
-2023-11-24 16:54:41,455 INFO: main: EAChecker 0.2 started.
-2023-11-24 16:54:52,434 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
-2023-11-24 16:54:52,434 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
-2023-11-24 16:55:11,889 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
-2023-11-24 16:55:11,890 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-11-27 18:16:41,319 INFO: main: EAChecker 0.2 started.
+2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerDiagrams' plugin.
+2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerPackageStructure' plugin.
+2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerPerformance' plugin.
+2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerSketches' plugin.
+2023-11-27 18:16:41,342 INFO: EACheckerPerformance: Started.
+2023-11-27 18:16:41,342 INFO: EACheckerPerformance: Connection Started.
+2023-11-27 18:16:55,239 INFO: EACheckerEngine: EA Connection success for ea_checker.
+2023-11-27 18:16:55,244 INFO: EACheckerEngine: Checker entry point is {B9521B93-C6FB-41ea-AEE8-577F2DAB92D4}.
+2023-11-27 18:16:56,009 INFO: EACheckerPerformance: Connection Completed, took 0:00:14.666448
+2023-11-27 18:16:56,684 INFO: EACheckerPackageStructure: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams' Package Start
+2023-11-27 18:16:56,685 ERROR: EACheckerPackageStructure: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams' package is not recognized
+2023-11-27 18:16:56,685 INFO: EACheckerPackageStructure: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams' Package End
+2023-11-27 18:16:56,814 INFO: EACheckerDiagrams: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams/TOPIC_ID_PERSISTENCY ver 1' Diagram Start
+2023-11-27 18:17:03,636 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'Alexander Golyshkin', 'CreatedDate': '12.09.2023 13:06:13', 'ModifiedDate': '24.11.2023 12:07:32', 'Type': 'Logical', 'GUID': '{381CB064-BADF-4153-9432-2C13014EB3C2}'}
+2023-11-27 18:17:03,636 INFO: EACheckerDiagrams: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams/TOPIC_ID_PERSISTENCY ver 1' Diagram End
+2023-11-27 18:17:04,312 INFO: EACheckerPerformance: Completed, took 0:00:22.969686
+2023-11-27 18:17:04,312 INFO: main: EAChecker 0.2 ended with status 1.

@@ -35,3 +35,10 @@ class EACheckerConfigEngineInterface( EACheckerConfigBaseInterface ):
       :return: set of nodes
       """
       raise NotImplementedError()
+
+   def getStartGUID( self ) -> str:
+      """
+      Get GUID checker entry point.
+      :return: EA GUID
+      """
+      raise NotImplementedError()
