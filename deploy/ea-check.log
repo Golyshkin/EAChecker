@@ -1,0 +1,6 @@
+2023-11-20 17:30:58,306 INFO: main: EAChecker 0.2 started.
+2023-11-20 17:30:58,306 INFO: EACheckerEngine: Added 'EACheckerPerformance' plugin.
+2023-11-20 17:30:58,306 INFO: EACheckerPerformance: Started.
+2023-11-20 17:30:58,306 INFO: EACheckerPerformance: Connection Started.
+2023-11-20 17:31:07,511 INFO: EACheckerEngine: EA Connection success for ea_checker.
+2023-11-20 17:31:07,667 INFO: EACheckerPerformance: Connection Completed, took 0:00:09.360484
