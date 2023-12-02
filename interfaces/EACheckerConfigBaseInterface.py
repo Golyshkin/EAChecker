@@ -8,7 +8,7 @@ class EACheckerConfigBaseInterface:
    CONF_LOG_FILE_NAME: str = "ea-check.log"
    CONF_FILE_PATH: str = "DBType=4;Connect=Provider=MSDASQL.1;Data Source=PostgreSQL35W"
    CONF_USER_NAME: str = "ea_checker"
-   CONF_USER_PSWD: str = "_ValiDation23"
+   CONF_USER_PSWD: str = "*********"
    CONF_PATH_SEPARATOR: str = "/"
    CONF_NODE_PATH_SPACE: str = "__"
    CONF_NODE_PATH_NUM: str = "__num__"
