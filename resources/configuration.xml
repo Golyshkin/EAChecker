@@ -4,9 +4,9 @@
     <!-- Behind nodes below application will not check anything -->
     <skipNodes>
       <skipNode>Platform/Sketches</skipNode>
+      <!-- 
       <skipNode>Platform/Process</skipNode>
-      <skipNode>Platform/Catalog</skipNode>
-      <skipNode>Platform/Diagrams</skipNode>
+      -->
     </skipNodes>
   </application>
   <plugins>
@@ -95,6 +95,7 @@
       <ignore-list>
         <ignore>Platform/Catalog/ReadMe</ignore>
       </ignore-list>
+      <user-rule>[A-z]{3,}\s[A-z]{3,}</user-rule>
       <name-rules>
         <name-rule type="Component">Component\s\w{1,}(\s\-\s\w{1,})+</name-rule>
         <name-rule type="Interface">Interface\s\w{1,}(\s\-\s\w{1,})+</name-rule>
@@ -103,9 +104,7 @@
       </name-rules>
     </EACheckerDiagrams>
     <EACheckerSketches enabled="true">
-      <name-rules>
-        <user-rule>[\w]{1,}\.\w{1,}\s\(\w{1,}\)</user-rule>
-      </name-rules>
+      <user-rule>[\w]{1,}\.\w{1,}\s\(\w{1,}\)</user-rule>
     </EACheckerSketches>
   </plugins>
 </configuration>

@@ -36,7 +36,7 @@ class EACheckerEngine( EACheckerEngineInterface ):
       # LOGGER.setLevel( logging.ERROR )
 
    def getPluginConfig( self, aPluginName: str ) -> EACheckerConfigPluginInterface:
-      return EACheckerConfig.createFromPluginName( aPluginName )
+      return EACheckerConfig.createFromPluginName( self.__config.getArgs(), aPluginName )
 
    def __addPlugins( self ):
       if self.__config.isPerfEnabled():
@@ -74,22 +74,18 @@ class EACheckerEngine( EACheckerEngineInterface ):
       self.__repo.Exit()
 
    def __drillDown( self, aNode: CDispatch, aNodePath: str ):
-
-      if aNode.Packages.Count == 0:
-         return
-
       isDrillDownPermitted: bool = False if aNodePath in self.__skipNodeList else True
       if not isDrillDownPermitted:
          LOGGER.info( f"Child processing for {aNodePath} will be skipped due configuration." )
 
+      for diagram in aNode.Diagrams:
+         self.__notify( aActionType = self.ACTION_TYPE.DIAGRAM, aNodeData = (diagram, aNodePath) )
+
       for package in aNode.Packages:
          self.__notify( aActionType = self.ACTION_TYPE.PACKAGE, aNodeData = (package, aNodePath) )
 
-         for diagram in package.Diagrams:
-            self.__notify( aActionType = self.ACTION_TYPE.DIAGRAM, aNodeData = (diagram, aNodePath + EACheckerConfigPluginInterface.CONF_PATH_SEPARATOR + package.Name) )
-
          if isDrillDownPermitted:
-            if package.Packages.Count > 0:
+            if package.Packages.Count > 0 or package.Diagrams.count > 0:
                self.__drillDown( package, f"{aNodePath + EACheckerConfigPluginInterface.CONF_PATH_SEPARATOR + package.Name}" )
 
    def getRepo( self ) -> CDispatch:
@@ -130,9 +126,9 @@ class EACheckerEngine( EACheckerEngineInterface ):
          if startGUID is not None:
             self.__rootNode = self.__repo.GetPackageByGuid( startGUID )
             if self.__rootNode is not None:
-               LOGGER.info( f"Checker entry point is {startGUID}." )
+               LOGGER.info( f"Checker entry package is {startGUID}." )
             else:
-               LOGGER.fatal( f"{startGUID} is not found in EA repo." )            	
+               LOGGER.fatal( f"{startGUID} package is not found in EA repo." )
          else:
             self.__rootNode = self.__repo.Models[ 0 ]
 

@@ -1,100 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration ver="1.0">
-  <ea-structure>
-    <!--
-    Any package node in <ea-structure/> tree may have the following properties:
-    @action=stop - declares to stop structure check for child nodes
-    @action=none - declares to ignore an @action attribute
-
-    To declare a new package structure used XML format with following restrictions due XML limitation:
-    1. All package spaces inside name MUST be replaced with __ symbol in XML node name
-    2. All packages which start with number MUST be added a __num__ prefix to XML node name
-    3. All packages which contain with ( or ) MUST be replaced with __lbracket__ or __rbracket__ prefix in XML node name
-    4. All package colon inside name MUST be replaced with __colon__ symbol in XML node name
-    5. Others XML none correct symbols are not permitted and package processing for such incorrect names will be stopped with corresponding notification
-    -->
-    <!-- TODO: REMOVE -->
-    <Platform>
-      <Catalog>
-        <Cluster>
-          <HW/>
-          <SW/>
-        </Cluster>
-        <Common>
-          <Actors/>
-          <HW/>
-          <SW/>
-        </Common>
-        <IVI>
-          <HW/>
-          <SW/>
-        </IVI>
-        <MCU>
-          <HW/>
-          <SW/>
-        </MCU>
-        <Templates>
-          <Diagrams__Structure>
-            <__num__01__-__Use__Case__Diagrams/>
-            <__num__02__-__Component__Diagrams/>
-            <__num__03__-__Interface__Diagrams/>
-            <__num__04__-__Class_Diagrams/>
-            <__num__05__-__Deployment_Diagrams/>
-            <__num__10__-__Activity__Diagrams/>
-            <__num__11__-__State__Diagrams/>
-            <__num__12__-__Sequence__Diagrams/>
-            <__num__13__-__Timing__Diagrams/>
-            <__num__20__-__Local__Catalog/>
-            <__num__21__-__Design__Alternatives/>
-          </Diagrams__Structure>
-          <Legends/>
-        </Templates>
-      </Catalog>
-      <Diagrams>
-        <Domains>
-          <Cluster>
-            <HLD/>
-            <LLD/>
-          </Cluster>
-          <Common>
-            <HLD/>
-            <LLD/>
-          </Common>
-          <IVI>
-            <HLD/>
-            <LLD/>
-          </IVI>
-          <MCU>
-            <HLD/>
-            <LLD/>
-          </MCU>
-        </Domains>
-        <Features/>
-        <Solutions>
-          <Catalog/>
-          <Cluster/>
-          <Common/>
-          <IVI/>
-          <MCU/>
-        </Solutions>
-      </Diagrams>
-      <Process action="stop"/>
-      <Sketches action="stop"/>
-    </Platform>
-  </ea-structure>
-  <!-- TODO: REMOVE -->
-  <ea-packages>
-    <ea-name>
-      <sketches>[\w]{1,}\.\w{1,}\s\(\w{1,}\)</sketches>
-    </ea-name>
-  </ea-packages>
+  <application>
+    <!-- Behind nodes below application will not check anything -->
+    <skipNodes>
+      <skipNode>Platform/Sketches</skipNode>
+      <!-- 
+      <skipNode>Platform/Process</skipNode>
+      -->
+    </skipNodes>
+  </application>
   <plugins>
-    <EACheckerPerformance/>
-    <EACheckerPackageStructure/>
-    <EACheckerDiagrams>
+    <EACheckerPerformance enabled="true"/>
+    <EACheckerPackageStructure enabled="true">
+      <ea-structure>
+        <!--
+        Any package node in <ea-structure/> tree may have the following properties:
+        To declare a new package structure used XML format with following restrictions due XML limitation:
+        1. All package spaces inside name MUST be replaced with __ symbol in XML node name
+        2. All packages which start with number MUST be added a __num__ prefix to XML node name
+        3. All packages which contain with ( or ) MUST be replaced with __lbracket__ or __rbracket__ prefix in XML node name
+        4. All package colon inside name MUST be replaced with __colon__ symbol in XML node name
+        5. Others XML none correct symbols are not permitted and package processing for such incorrect names will be stopped with corresponding notification
+        -->
+        <Platform>
+          <Catalog>
+            <Cluster>
+              <HW/>
+              <SW/>
+            </Cluster>
+            <Common>
+              <Actors/>
+              <HW/>
+              <SW/>
+            </Common>
+            <IVI>
+              <HW/>
+              <SW/>
+            </IVI>
+            <MCU>
+              <HW/>
+              <SW/>
+            </MCU>
+            <Templates>
+              <Diagrams__Structure>
+                <__num__01__-__Use__Case__Diagrams/>
+                <__num__02__-__Component__Diagrams/>
+                <__num__03__-__Interface__Diagrams/>
+                <__num__04__-__Class_Diagrams/>
+                <__num__05__-__Deployment_Diagrams/>
+                <__num__10__-__Activity__Diagrams/>
+                <__num__11__-__State__Diagrams/>
+                <__num__12__-__Sequence__Diagrams/>
+                <__num__13__-__Timing__Diagrams/>
+                <__num__20__-__Local__Catalog/>
+                <__num__21__-__Design__Alternatives/>
+              </Diagrams__Structure>
+              <Legends/>
+            </Templates>
+          </Catalog>
+          <Diagrams>
+            <Domains>
+              <Cluster>
+                <HLD/>
+                <LLD/>
+              </Cluster>
+              <Common>
+                <HLD/>
+                <LLD/>
+              </Common>
+              <IVI>
+                <HLD/>
+                <LLD/>
+              </IVI>
+              <MCU>
+                <HLD/>
+                <LLD/>
+              </MCU>
+            </Domains>
+            <Features/>
+            <Solutions>
+              <Catalog/>
+              <Cluster/>
+              <Common/>
+              <IVI/>
+              <MCU/>
+            </Solutions>
+          </Diagrams>
+          <Process/>
+          <Sketches/>
+        </Platform>
+      </ea-structure>
+    </EACheckerPackageStructure>
+    <EACheckerDiagrams enabled="true">
       <ignore-list>
         <ignore>Platform/Catalog/ReadMe</ignore>
       </ignore-list>
+      <user-rule>[A-z]{3,}\s[A-z]{3,}</user-rule>
       <name-rules>
         <name-rule type="Component">Component\s\w{1,}(\s\-\s\w{1,})+</name-rule>
         <name-rule type="Interface">Interface\s\w{1,}(\s\-\s\w{1,})+</name-rule>
@@ -102,10 +103,8 @@
         <name-rule type="Sequence">Sequence\s\w{1,}(\s\-\s\w{1,})+</name-rule>
       </name-rules>
     </EACheckerDiagrams>
-    <EACheckerSketches>
-      <name-rules>
-        <name-rule>[\w]{1,}\.\w{1,}\s\(\w{1,}\)</name-rule>
-      </name-rules>
+    <EACheckerSketches enabled="true">
+      <user-rule>[\w]{1,}\.\w{1,}\s\(\w{1,}\)</user-rule>
     </EACheckerSketches>
   </plugins>
 </configuration>

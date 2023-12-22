@@ -39,3 +39,10 @@ class EACheckerConfigPluginInterface( EACheckerConfigBaseInterface ):
       :return: bool True if plugin enabled
       """
       raise NotImplementedError()
+
+   def getExportType( self ) -> str:
+      """
+      Get checker  plug-ins error export file type.
+      :return: file type extension
+      """
+      raise NotImplementedError()

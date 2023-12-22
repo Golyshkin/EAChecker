@@ -10,7 +10,9 @@ class EACheckerArg:
                                              epilog = EACheckerConfigPluginInterface.APP_AUTHOR )
       self.parser.add_argument( '-p', '--perf', help = "enable a performance plug-in", required = False, action = 'store_true' )
       self.parser.add_argument( '-c', '--check', help = "enable a checker plug-ins", required = False, action = 'store_true' )
-      self.parser.add_argument( '-s', '--start', metavar = "GUID", nargs = 1, help = "start checker from GUID point", required = False, action = 'store' )
+      self.parser.add_argument( '-e', '--export', help = "export checker plug-ins errors to specific format", required = False, choices = [ 'csv' ], action = 'store' )
+      self.parser.add_argument( '-s', '--start', metavar = "GUID", nargs = 1, help = "start checker from GUID package", required = False, action = 'store' )
+      self.parser.add_argument( '--version', action = 'version', version = f'%(prog)s {EACheckerConfigPluginInterface.APP_VER}' )
       self.args: argparse.Namespace = self.parser.parse_args()
 
       isArgsSet: bool = False
@@ -35,3 +37,6 @@ class EACheckerArg:
    def getStartGUID( self ) -> str:
       startCfgList: list = vars( self.args ).get( 'start' )
       return startCfgList[ 0 ] if startCfgList is not None and len( startCfgList ) > 0 else None
+
+   def getExportType( self ) -> str:
+      return vars( self.args ).get( 'export' )

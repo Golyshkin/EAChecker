@@ -1,18 +1,65 @@
-2023-11-27 18:16:41,319 INFO: main: EAChecker 0.2 started.
-2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerDiagrams' plugin.
-2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerPackageStructure' plugin.
-2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerPerformance' plugin.
-2023-11-27 18:16:41,342 INFO: EACheckerEngine: Added 'EACheckerSketches' plugin.
-2023-11-27 18:16:41,342 INFO: EACheckerPerformance: Started.
-2023-11-27 18:16:41,342 INFO: EACheckerPerformance: Connection Started.
-2023-11-27 18:16:55,239 INFO: EACheckerEngine: EA Connection success for ea_checker.
-2023-11-27 18:16:55,244 INFO: EACheckerEngine: Checker entry point is {B9521B93-C6FB-41ea-AEE8-577F2DAB92D4}.
-2023-11-27 18:16:56,009 INFO: EACheckerPerformance: Connection Completed, took 0:00:14.666448
-2023-11-27 18:16:56,684 INFO: EACheckerPackageStructure: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams' Package Start
-2023-11-27 18:16:56,685 ERROR: EACheckerPackageStructure: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams' package is not recognized
-2023-11-27 18:16:56,685 INFO: EACheckerPackageStructure: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams' Package End
-2023-11-27 18:16:56,814 INFO: EACheckerDiagrams: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams/TOPIC_ID_PERSISTENCY ver 1' Diagram Start
-2023-11-27 18:17:03,636 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'Alexander Golyshkin', 'CreatedDate': '12.09.2023 13:06:13', 'ModifiedDate': '24.11.2023 12:07:32', 'Type': 'Logical', 'GUID': '{381CB064-BADF-4153-9432-2C13014EB3C2}'}
-2023-11-27 18:17:03,636 INFO: EACheckerDiagrams: 'TOPIC_ID_PERSISTENCY/04 - Class Diagrams/TOPIC_ID_PERSISTENCY ver 1' Diagram End
-2023-11-27 18:17:04,312 INFO: EACheckerPerformance: Completed, took 0:00:22.969686
-2023-11-27 18:17:04,312 INFO: main: EAChecker 0.2 ended with status 1.
+2023-12-21 14:13:14,719 INFO: main: EAChecker 0.4 started.
+2023-12-21 14:13:14,733 INFO: EACheckerEngine: Added 'EACheckerPerformance' plugin.
+2023-12-21 14:13:14,733 INFO: EACheckerEngine: Added 'EACheckerDiagrams' plugin.
+2023-12-21 14:13:14,733 INFO: EACheckerEngine: Added 'EACheckerSketches' plugin.
+2023-12-21 14:13:14,734 INFO: EACheckerEngine: Added 'EACheckerPackageStructure' plugin.
+2023-12-21 14:13:14,734 INFO: EACheckerPerformance: Started.
+2023-12-21 14:13:14,734 INFO: EACheckerPerformance: Connection Started.
+2023-12-21 14:13:25,384 INFO: EACheckerEngine: EA Connection success for ea_checker.
+2023-12-21 14:13:26,156 INFO: EACheckerEngine: Checker entry package is {E21E3E49-E450-4070-B460-39FABB9B1591}.
+2023-12-21 14:13:26,156 INFO: EACheckerPerformance: Connection Completed, took 0:00:11.421973
+2023-12-21 14:13:26,938 INFO: EACheckerPackageStructure: 'TimeManager/02 - TimeManager Overview' Package Start
+2023-12-21 14:13:26,939 ERROR: EACheckerPackageStructure: 'TimeManager/02 - TimeManager Overview' package is not recognized
+2023-12-21 14:13:26,939 INFO: EACheckerPackageStructure: 'TimeManager/02 - TimeManager Overview' Package End
+2023-12-21 14:13:27,121 INFO: EACheckerDiagrams: 'TimeManager/02 - TimeManager Overview/02 - TimeManager overview' Diagram Start
+2023-12-21 14:13:37,485 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:13:37,488 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:13:37,488 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'aaersh10', 'CreatedDate': '02.03.2023 12:05:49', 'ModifiedDate': '28.04.2023 05:58:38', 'Type': 'Component', 'GUID': '{3A60F46C-8EC9-47b6-A5DD-082DF2738AD3}', 'Path': 'TimeManager/02 - TimeManager Overview/02 - TimeManager overview'}
+2023-12-21 14:13:37,489 WARNING: EACheckerDiagrams: 'aaersh10' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:13:37,490 INFO: EACheckerDiagrams: 'TimeManager/02 - TimeManager Overview/02 - TimeManager overview' Diagram End
+2023-12-21 14:13:37,555 INFO: EACheckerDiagrams: 'TimeManager/02 - TimeManager Overview/TimeManager' Diagram Start
+2023-12-21 14:13:42,674 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:13:42,675 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:13:42,675 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'ivsmirn64', 'CreatedDate': '13.02.2023 20:33:35', 'ModifiedDate': '16.02.2023 11:42:49', 'Type': 'Component', 'GUID': '{A813A502-3E20-497a-9EC9-0C3302674A7D}', 'Path': 'TimeManager/02 - TimeManager Overview/TimeManager'}
+2023-12-21 14:13:42,676 WARNING: EACheckerDiagrams: 'ivsmirn64' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:13:42,676 INFO: EACheckerDiagrams: 'TimeManager/02 - TimeManager Overview/TimeManager' Diagram End
+2023-12-21 14:13:43,255 INFO: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases' Package Start
+2023-12-21 14:13:43,255 ERROR: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases' package is not recognized
+2023-12-21 14:13:43,255 INFO: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases' Package End
+2023-12-21 14:13:43,975 WARNING: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases/01 - TimeManager - Set time from IVI' - package ignored
+2023-12-21 14:13:44,125 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/01 - TimeManager - Set time from IVI/01 - TimeManager - Set time from IVI' Diagram Start
+2023-12-21 14:13:47,648 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:13:47,649 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:13:47,650 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'aaersh10', 'CreatedDate': '02.03.2023 14:38:43', 'ModifiedDate': '09.03.2023 17:14:32', 'Type': 'Sequence', 'GUID': '{0F5DC547-9C6A-4753-BE8B-414313197595}', 'Path': 'TimeManager/03 - TimeManager Use Cases/01 - TimeManager - Set time from IVI/01 - TimeManager - Set time from IVI'}
+2023-12-21 14:13:47,650 WARNING: EACheckerDiagrams: 'aaersh10' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:13:47,651 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/01 - TimeManager - Set time from IVI/01 - TimeManager - Set time from IVI' Diagram End
+2023-12-21 14:13:48,253 WARNING: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases/02 - TimeManager - Set system time at start up' - package ignored
+2023-12-21 14:13:48,424 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/02 - TimeManager - Set system time at start up/02 - Time Manager - Set system time at start up' Diagram Start
+2023-12-21 14:13:51,055 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:13:51,056 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:13:51,057 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'aaersh10', 'CreatedDate': '02.03.2023 15:14:54', 'ModifiedDate': '27.03.2023 10:11:42', 'Type': 'Sequence', 'GUID': '{5E03767B-0CAF-45e3-A74A-A9D84671FE52}', 'Path': 'TimeManager/03 - TimeManager Use Cases/02 - TimeManager - Set system time at start up/02 - Time Manager - Set system time at start up'}
+2023-12-21 14:13:51,057 WARNING: EACheckerDiagrams: 'aaersh10' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:13:51,058 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/02 - TimeManager - Set system time at start up/02 - Time Manager - Set system time at start up' Diagram End
+2023-12-21 14:13:51,651 WARNING: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases/03 - TimeManager - Set time from CAN' - package ignored
+2023-12-21 14:13:51,815 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/03 - TimeManager - Set time from CAN/03 - TimeManager - Set time from CAN' Diagram Start
+2023-12-21 14:13:55,040 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:13:55,041 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:13:55,041 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'aaersh10', 'CreatedDate': '02.03.2023 15:25:30', 'ModifiedDate': '02.03.2023 15:38:17', 'Type': 'Sequence', 'GUID': '{44DBA084-B5AB-475f-924A-4493B0988941}', 'Path': 'TimeManager/03 - TimeManager Use Cases/03 - TimeManager - Set time from CAN/03 - TimeManager - Set time from CAN'}
+2023-12-21 14:13:55,043 WARNING: EACheckerDiagrams: 'aaersh10' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:13:55,043 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/03 - TimeManager - Set time from CAN/03 - TimeManager - Set time from CAN' Diagram End
+2023-12-21 14:13:55,652 WARNING: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI' - package ignored
+2023-12-21 14:13:55,824 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/04 - TimeManager - Set timezone from IVI' Diagram Start
+2023-12-21 14:13:58,964 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:13:58,964 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:13:58,964 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'aaersh10', 'CreatedDate': '03.03.2023 09:21:50', 'ModifiedDate': '03.04.2023 12:15:21', 'Type': 'Sequence', 'GUID': '{F43F215F-CA4D-4d92-9C45-BA0D1C2AE309}', 'Path': 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/04 - TimeManager - Set timezone from IVI'}
+2023-12-21 14:13:58,965 WARNING: EACheckerDiagrams: 'aaersh10' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:13:58,966 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/04 - TimeManager - Set timezone from IVI' Diagram End
+2023-12-21 14:13:59,575 WARNING: EACheckerPackageStructure: 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/01 - TimeManager - Set timezone from IVI - alt 1' - package ignored
+2023-12-21 14:13:59,749 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/01 - TimeManager - Set timezone from IVI - alt 1/04 - TimeManager - Set timezone from IVI - alt 1' Diagram Start
+2023-12-21 14:14:04,516 ERROR: EACheckerDiagrams: Diagram Notes Not Found.
+2023-12-21 14:14:04,517 ERROR: EACheckerDiagrams: GUID Notes Not Correct or Not Found.
+2023-12-21 14:14:04,517 INFO: EACheckerDiagrams: Diagram Info: {'Author': 'aaersh10', 'CreatedDate': '03.03.2023 09:45:48', 'ModifiedDate': '03.03.2023 10:14:11', 'Type': 'Sequence', 'GUID': '{B45B33D3-40D4-4f91-9AAF-5994825562A5}', 'Path': 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/01 - TimeManager - Set timezone from IVI - alt 1/04 - TimeManager - Set timezone from IVI - alt 1'}
+2023-12-21 14:14:04,518 WARNING: EACheckerDiagrams: 'aaersh10' name is not matching to [A-z]{3,}\s[A-z]{3,}
+2023-12-21 14:14:04,518 INFO: EACheckerDiagrams: 'TimeManager/03 - TimeManager Use Cases/04 - TimeManager - Set timezone from IVI/01 - TimeManager - Set timezone from IVI - alt 1/04 - TimeManager - Set timezone from IVI - alt 1' Diagram End
+2023-12-21 14:14:05,052 INFO: EACheckerPerformance: Completed, took 0:00:50.318897
+2023-12-21 14:14:05,053 INFO: main: EAChecker 0.4 ended with status 1.

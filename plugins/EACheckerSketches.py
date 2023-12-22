@@ -9,7 +9,7 @@ class EACheckerSketches( EACheckerPluginInterface ):
    def __init__( self, aEngine: EACheckerEngineInterface ):
       self.__engine: EACheckerEngineInterface = aEngine
       self.__config: EACheckerConfigPluginInterface = aEngine.getPluginConfig( self.getName() )
-      self.__userNamePattern = self.__config.getConfigurationValue( "name-rules/user-rule" )
+      self.__userNamePattern = self.__config.getConfigurationValue( "user-rule" )
       self.__isEnabled: bool = self.__config.isPluginEnabled()
 
    def getName( self ) -> str:

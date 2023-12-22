@@ -1,6 +1,7 @@
 from abc import abstractmethod
 
 from interfaces.EACheckerConfigBaseInterface import EACheckerConfigBaseInterface
+from utils.EACheckerArg import EACheckerArg
 
 
 class EACheckerConfigEngineInterface( EACheckerConfigBaseInterface ):
@@ -29,6 +30,7 @@ class EACheckerConfigEngineInterface( EACheckerConfigBaseInterface ):
       """
       raise NotImplementedError()
 
+   @abstractmethod
    def getSkipNodes( self ) -> set[ str, ]:
       """
       Get of ignore nodes which shall be skipped during EA structure processing by engine.
@@ -36,9 +38,18 @@ class EACheckerConfigEngineInterface( EACheckerConfigBaseInterface ):
       """
       raise NotImplementedError()
 
+   @abstractmethod
    def getStartGUID( self ) -> str:
       """
       Get GUID checker entry point.
       :return: EA GUID
+      """
+      raise NotImplementedError()
+
+   @abstractmethod
+   def getArgs( self ) -> EACheckerArg:
+      """
+      Get args object
+      :return: ARGs object
       """
       raise NotImplementedError()

@@ -29,14 +29,18 @@ class EACheckerConfig( EACheckerConfigPluginInterface, EACheckerConfigEngineInte
          LOGGER.error( f"\"{exception}\"" )
 
    @classmethod
-   def createFromPluginName( cls, aPluginName: str ):
+   def createFromPluginName( cls, aArg: EACheckerArg, aPluginName: str ):
       """
       Clone current Engine config to plugin instance config
+      :param aArg:EACheckerArg arg parser
       :param aPluginName: Plugin name for clone
       :return: new instance of plugin config
       """
 
-      return cls( None, aPluginName )
+      return cls( aArg, aPluginName )
+
+   def getArgs( self ) -> EACheckerArg:
+      return self.__argSettings
 
    def isPerfEnabled( self ) -> bool:
       return self.__argSettings.isPerfEnabled()
@@ -87,3 +91,6 @@ class EACheckerConfig( EACheckerConfigPluginInterface, EACheckerConfigEngineInte
 
    def getStartGUID( self ) -> str:
       return self.__argSettings.getStartGUID()
+
+   def getExportType( self ) -> str:
+      return self.__argSettings.getExportType()
