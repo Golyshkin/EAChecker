@@ -11,82 +11,81 @@ from utils.exportlogs.EACheckerExportLogFactory import EACheckerExportLogFactory
 
 class EACheckerDiagrams( EACheckerPluginInterface ):
    def __init__( self, aEngine: EACheckerEngineInterface ):
-      self.__engine: EACheckerEngineInterface = aEngine
-      self.__config: EACheckerConfigPluginInterface = aEngine.getPluginConfig( self.getName() )
-      self.__isDiagramNoteFound: bool = False
-      self.__isGUIDNoteFound: bool = False
-      self.__diagramInfo: [ str, str ] = dict()
-      self.__isEnabled: bool = self.__config.isPluginEnabled()
-      self.__exportCsvFile = None
-      self.__exportLog = EACheckerExportLogFactory.create( self.__config.getExportType(), self.getName(), ("Issue Type", "EA Path", "GUID", "Author", "Modified Date", "Error Message") )
-      self.__userNamePattern = self.__config.getConfigurationValue( "user-rule" )
+      self._engine: EACheckerEngineInterface = aEngine
+      self._config: EACheckerConfigPluginInterface = aEngine.getPluginConfig( self.getName() )
+      self._isDiagramNoteFound: bool = False
+      self._isGUIDNoteFound: bool = False
+      self._diagramInfo: [ str, str ] = dict()
+      self._isEnabled: bool = self._config.isPluginEnabled()
+      self._exportLog = EACheckerExportLogFactory.create( self._config.getExportType(), self.getName(), ("Issue Type", "EA Path", "GUID", "Author", "Modified Date", "Error Message") )
+      self._userNamePattern = self._config.getConfigurationValue( "user-rule" )
 
    def getName( self ) -> str:
       return "EACheckerDiagrams"
 
    def isActive( self ) -> bool:
-      return self.__isEnabled
+      return self._isEnabled
 
    def onDiagram( self, aNode: CDispatch, aNodePath: str ) -> None:
       nodePath: str = aNodePath + EACheckerConfigPluginInterface.CONF_PATH_SEPARATOR + aNode.Name
-      self.__isDiagramNoteFound = False
-      self.__isGUIDNoteFound = False
-      self.__setDiagramInfo( aNode, nodePath )
+      self._isDiagramNoteFound = False
+      self._isGUIDNoteFound = False
+      self._setDiagramInfo( aNode, nodePath )
 
       LOGGER.info( f"'{nodePath}' Diagram Start" )
 
       # Checkers start
       for diagramObject in aNode.DiagramObjects:
-         diagramElement: CDispatch = self.__engine.getRepo().GetElementByID( diagramObject.ElementID )
+         diagramElement: CDispatch = self._engine.getRepo().GetElementByID( diagramObject.ElementID )
          match diagramElement.Type:
             case 'Text':
-               self.__checkDiagramNotesAvailable( diagramElement )
+               self._checkDiagramNotesAvailable( diagramElement )
             case 'Note':
-               self.__checkGUIDNotesAvailable( aNode.DiagramGUID, diagramElement )
+               self._checkGUIDNotesAvailable( aNode.DiagramGUID, diagramElement )
             case _:
                pass
-      self.__checkNotesGUIDStatus()
-      self.__checkAuthorName( aNode.Author )
+      self._checkNotesGUIDStatus()
+      self._checkAuthorName( aNode.Author )
       # Checkers end
 
       LOGGER.info( f"'{nodePath}' Diagram End" )
 
-   def __setDiagramInfo( self, aNode: CDispatch, aNodePath: str ):
-      self.__diagramInfo[ "Author" ] = aNode.Author
+   def _setDiagramInfo( self, aNode: CDispatch, aNodePath: str ):
+      self._diagramInfo[ "Author" ] = aNode.Author
       # Do not remove! Required for generating EXE file and including this module to final image.
       win32timezone.now()
-      self.__diagramInfo[ "CreatedDate" ] = aNode.CreatedDate.strftime( "%d.%m.%Y %H:%M:%S" )
-      self.__diagramInfo[ "ModifiedDate" ] = aNode.ModifiedDate.strftime( "%d.%m.%Y %H:%M:%S" )
-      self.__diagramInfo[ "Type" ] = aNode.Type
-      self.__diagramInfo[ "GUID" ] = aNode.DiagramGUID
-      self.__diagramInfo[ "Path" ] = aNodePath
+      self._diagramInfo[ "CreatedDate" ] = aNode.CreatedDate.strftime( "%d.%m.%Y %H:%M:%S" )
+      self._diagramInfo[ "ModifiedDate" ] = aNode.ModifiedDate.strftime( "%d.%m.%Y %H:%M:%S" )
+      self._diagramInfo[ "Type" ] = aNode.Type
+      self._diagramInfo[ "GUID" ] = aNode.DiagramGUID
+      self._diagramInfo[ "Path" ] = aNodePath
 
-   def __checkDiagramNotesAvailable( self, aTextElement: CDispatch ) -> None:
-      self.__isDiagramNoteFound |= aTextElement.Subtype == 18
+   def _checkDiagramNotesAvailable( self, aTextElement: CDispatch ) -> None:
+      self._isDiagramNoteFound |= aTextElement.Subtype == 18
 
-   def __checkGUIDNotesAvailable( self, aGUID: str, aNoteElement: CDispatch ) -> None:
-      self.__isGUIDNoteFound |= aGUID == aNoteElement.Notes
+   def _checkGUIDNotesAvailable( self, aGUID: str, aNoteElement: CDispatch ) -> None:
+      self._isGUIDNoteFound |= aGUID == aNoteElement.Notes
 
-   def __checkNotesGUIDStatus( self ) -> None:
-      if not self.__isDiagramNoteFound:
-         self.__reportStatus( logging.ERROR, "Diagram Notes Not Found." )
-      if not self.__isGUIDNoteFound:
-         self.__reportStatus( logging.ERROR, "GUID Notes Not Correct or Not Found." )
+   def _checkNotesGUIDStatus( self ) -> None:
+      if not self._isDiagramNoteFound:
+         self._reportStatus( logging.ERROR, "Diagram Notes Not Found." )
+      if not self._isGUIDNoteFound:
+         self._reportStatus( logging.ERROR, "GUID Notes Not Correct or Not Found." )
 
-      LOGGER.info( f"Diagram Info: {str( self.__diagramInfo )}" )
+      LOGGER.info( f"Diagram Info: {str( self._diagramInfo )}" )
 
-   def __reportStatus( self, aStatusLevel: int, aStatusMsg: str ) -> None:
+   def _reportStatus( self, aStatusLevel: int, aStatusMsg: str ) -> None:
       match aStatusLevel:
          case logging.WARN:
             LOGGER.warn( aStatusMsg )
-            self.__exportLog.write( ("WARNING", self.__diagramInfo[ "Path" ], self.__diagramInfo[ "GUID" ], self.__diagramInfo[ "Author" ], self.__diagramInfo[ "ModifiedDate" ], aStatusMsg) )
+            self._exportLog.write( ("WARNING", self._diagramInfo[ "Path" ], self._diagramInfo[ "GUID" ], self._diagramInfo[ "Author" ], self._diagramInfo[ "ModifiedDate" ], aStatusMsg) )
          case logging.ERROR:
             LOGGER.error( aStatusMsg )
-            self.__exportLog.write( ("ERROR", self.__diagramInfo[ "Path" ], self.__diagramInfo[ "GUID" ], self.__diagramInfo[ "Author" ], self.__diagramInfo[ "ModifiedDate" ], aStatusMsg) )
+            self._exportLog.write( ("ERROR", self._diagramInfo[ "Path" ], self._diagramInfo[ "GUID" ], self._diagramInfo[ "Author" ], self._diagramInfo[ "ModifiedDate" ], aStatusMsg) )
             setError()
          case _:
             pass
 
-   def __checkAuthorName( self, aAuthorName: str ) -> None:
-      if re.search( self.__userNamePattern, aAuthorName ) is None:
-         self.__reportStatus( logging.WARN, f"'{aAuthorName}' name is not matching to {self.__userNamePattern}" )
+   def _checkAuthorName( self, aAuthorName: str ) -> None:
+      if re.search( self._userNamePattern, aAuthorName ) is None:
+         self._reportStatus( logging.WARN, f"'{aAuthorName}' name is not matching to {self._userNamePattern}" )

@@ -10,6 +10,7 @@
     </skipNodes>
   </application>
   <plugins>
+    <EACheckerElements enabled="true"/>
     <EACheckerPerformance enabled="true"/>
     <EACheckerPackageStructure enabled="true">
       <ea-structure>

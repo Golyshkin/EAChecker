@@ -1,11 +1,14 @@
 import logging
 import time
 
+from win32com.client import CDispatch
+
 from interfaces.EACheckerConfigPluginInterface import EACheckerConfigPluginInterface
 
 logging.basicConfig( level = logging.INFO, filename = EACheckerConfigPluginInterface.CONF_LOG_FILE_NAME, filemode = "w", format = "%(asctime)s %(levelname)s: %(module)s: %(message)s" )
 LOGGER = logging.getLogger( __name__ )
 isAppError: bool = False
+
 
 def convertNodePath( aNodePath: str ) -> str:
    """
@@ -64,3 +67,17 @@ def str2bool( val ) -> bool:
       return False
    else:
       raise ValueError( "invalid truth value %r" % (val,) )
+
+
+def storeTerms( aFileName: str, aRepo: CDispatch ) -> None:
+   """
+   Save current project terms into file
+   :param aFileName: filename
+   :param aRepo: project repo object
+   :return: None
+   """
+   with open( f"{aFileName}.csv", 'w' ) as fterms:
+      fterms.write( "sep=\t" )
+      fterms.write( "Term\tType\tMeans\n" )
+      for term in aRepo.Terms:
+         fterms.write( f"{term.Term}\t{term.Type}\t{term.Meaning}\n" )

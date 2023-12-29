@@ -1,3 +1,6 @@
 # Default ignored files
 __pycache__
 .idea
+venv
+*.xls
+*.csv
