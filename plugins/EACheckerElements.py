@@ -47,6 +47,6 @@ class EACheckerElements( EACheckerPluginInterface ):
 
       for unusedElementId in (allProjectObjectsIds - allUsedDiagramsObjectsIds):
          eaElement = self._engine.getRepo().GetElementByID( unusedElementId )
-         LOGGER.warn( f"Element is not used: Path={eaElement.FQName}, GUID={eaElement.ElementGUID}, Author={eaElement.Author}, ModifiedDate={eaElement.Modified.strftime( "%d.%m.%Y %H:%M:%S" )}, Type={eaElement.Type}" )
-         self._exportLog.write( ("WARNING", eaElement.FQName, eaElement.ElementGUID, eaElement.Author, eaElement.Modified.strftime( "%d.%m.%Y %H:%M:%S" ), eaElement.Type, "Element is not used.") )
+         LOGGER.warn( f"Element is not used: Path={eaElement.FQName}, GUID={eaElement.ElementGUID}, Author={eaElement.Author}, ModifiedDate={eaElement.Modified.strftime( '%d.%m.%Y %H:%M:%S' )}, Type={eaElement.Type}" )
+         self._exportLog.write( ("WARNING", eaElement.FQName, eaElement.ElementGUID, eaElement.Author, eaElement.Modified.strftime( '%d.%m.%Y %H:%M:%S' ), eaElement.Type, "Element is not used.") )
       LOGGER.info( f"Completed Check Unused EA Elements, took {datetime.timedelta( milliseconds = getCurrentMs() - curTimeExecution )}." )

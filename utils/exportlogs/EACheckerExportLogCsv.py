@@ -15,7 +15,7 @@ class EACheckerExportLogCsv( EACheckerExportLogInterface ):
    def __initExportFile( self ) -> None:
       self.__exportCsvFile = open( self.filename, mode = "w" )
       self.write( (f"sep={EACheckerExportLogCsv.SEPARATOR}",) )
-      self.write( (f"Date Check: {datetime.now().strftime( "%d.%m.%Y %H:%M:%S" )}\n",) )
+      self.write( (f"Date Check: {datetime.now().strftime( '%d.%m.%Y %H:%M:%S' )}\n",) )
       self.write( self.__cells )
 
    def write( self, aCells: tuple ) -> None:

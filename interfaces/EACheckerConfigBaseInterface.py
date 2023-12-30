@@ -9,10 +9,10 @@ class EACheckerConfigBaseInterface:
    Start User Credentials 
    """
    # FILE_PATH might be ODBC path or File Path for EA model. An example are below:
-   # CONF_FILE_PATH: str = "DBType=4;Connect=Provider=MSDASQL.1;Data Source=PostgreSQL35W"
-   # CONF_FILE_PATH: str = "Z:\\tmp\\LTE.eap"
+  #  CONF_FILE_PATH: str = "DBType=4;Connect=Provider=MSDASQL.1;Data Source=PostgreSQL35W"
+   CONF_FILE_PATH: str = "D:\\Projects\\UML models\\Arrival\\Arrival.eapx"
 
-   CONF_FILE_PATH: str = "DBType=4;Connect=Provider=MSDASQL.1;Data Source=PostgreSQL35W"
+#   CONF_FILE_PATH: str = "DBType=4;Connect=Provider=MSDASQL.1;Data Source=PostgreSQL35W"
    CONF_USER_NAME: str = "ea_checker"
    CONF_USER_PSWD: str = "***"
    """ 
